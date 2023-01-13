@@ -43,6 +43,7 @@ public class GildedRoseTest {
     }
 
     // ------------------------------------- brie ---------------------------------------------------------------------
+    // quality is getting increased by 1 , if daysrem >0
     @Test
     public void testBrieBeforeSellDate() {
         GildedRose item = new GildedRose("Aged Brie", 10, 5);
@@ -52,6 +53,7 @@ public class GildedRoseTest {
         assertEquals(4, item.daysRemaining);
     }
 
+    // max qualtiy can be 50 
     @Test
     public void testBrieBeforeSellDateWithMaxQuality() {
         GildedRose item = new GildedRose("Aged Brie", 50, 5);
@@ -61,6 +63,7 @@ public class GildedRoseTest {
         assertEquals(4, item.daysRemaining);
     }
 
+    // on sale day the brie quality is getting increased by 2
     @Test
     public void testBrieOnSellDate() {
         GildedRose item = new GildedRose("Aged Brie", 10, 0);
@@ -69,7 +72,7 @@ public class GildedRoseTest {
         assertEquals(12, item.quality);
         assertEquals(-1, item.daysRemaining);
     }
-
+    // if quality is near to max(49) and its the sell day the brie quality is getting incrased to max(50) 
     @Test
     public void testBrieOnSellDateNearMaxQuality() {
         GildedRose item = new GildedRose("Aged Brie", 49, 0);
@@ -78,6 +81,8 @@ public class GildedRoseTest {
         assertEquals(50, item.quality);
         assertEquals(-1, item.daysRemaining);
     }
+
+    //(repeated) on the saleday the max quality (50) will remain unchanged
 
     @Test
     public void testBrieOnSellDateWithMaxQuality() {
@@ -88,6 +93,8 @@ public class GildedRoseTest {
         assertEquals(-1, item.daysRemaining);
     }
 
+    //(repeated)after the sell day brie quality is getting increased by 2
+
     @Test
     public void testBrieAfterSellDate() {
         GildedRose item = new GildedRose("Aged Brie", 10, -1);
@@ -96,6 +103,8 @@ public class GildedRoseTest {
         assertEquals(12, item.quality);
         assertEquals(-2, item.daysRemaining);
     }
+
+    // a brie with quality max (50) will have the same quality after the sellday
 
     @Test
     public void testBrieAfterSellDateWithMaxQuality() {
