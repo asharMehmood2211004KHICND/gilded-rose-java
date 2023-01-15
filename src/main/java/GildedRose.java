@@ -26,62 +26,10 @@ public class GildedRose {
             Aged_Brie_tick();
          }
 
+        if(name.equals("Backstage passes to a TAFKAL80ETC concert")){
+            back_stage_tick();
+        }
 
-
-        // if(!StringUtils.equals(name, "Aged Brie") && !StringUtils.equals(name, "Backstage passes to a TAFKAL80ETC concert")) {
-        
-        //     if(quality > 0) {
-        //         if(!StringUtils.equals(name, "Sulfuras, Hand of Ragnaros")) {
-        //             quality -= 1;
-        //         }
-        //     }
-
-        // }
-        
-        
-        // else {
-                
-        //         if(quality < 50) {
-        //         quality += 1;
-        //         if(StringUtils.equals(name, "Backstage passes to a TAFKAL80ETC concert")) {
-        //             if(daysRemaining < 11) {
-        //                 if(quality < 50) {
-        //                     quality += 1;
-        //                 }
-        //             }
-        //             if(daysRemaining < 6) {
-        //                 if(quality < 50) {
-        //                     quality += 1;
-        //                 }
-        //             }
-        //         }
-        //     }
-
-        // }
-
-        // if(!StringUtils.equals(name, "Sulfuras, Hand of Ragnaros")) {
-        //     daysRemaining -= 1;
-        // }
-
-        // if(daysRemaining < 0) {
-
-        //     if(!StringUtils.equals(name, "Aged Brie")) {
-        //         if(!StringUtils.equals(name, "Backstage passes to a TAFKAL80ETC concert")) {
-        //             if(quality > 0) {
-        //                 if(!StringUtils.equals(name, "Sulfuras, Hand of Ragnaros")) {
-        //                     quality -=1;
-        //                 }
-        //             }
-        //         } else {
-        //             quality = quality - quality;
-        //         }
-        //     } else {
-        //         if(quality < 50) {
-        //             quality += 1;
-        //         }
-        //     }
-
-        // }
     }
 
     public void normal_tick(){
@@ -97,23 +45,62 @@ public class GildedRose {
 
     public void Aged_Brie_tick(){
 
-        if(quality!=50){
 
-            if(daysRemaining <= 0){
-                
-                quality += 1;
+
+        // before the sale day
+        if(daysRemaining>0){
+//            daysRemaining-=1;
+            if(quality!=50){
+                quality+=1;
+            }
+
+        }
+
+            if(daysRemaining==0){
+
+                if(quality!=50){
+                    if(quality!=49){
+                        quality+=2;
+                    }
+                    else {
+                        quality=50;
+                    }
+                }
+            }
+
+
+           if(daysRemaining<0) {
+               if (quality != 50) {
+                   quality += 2;
+               }
+           }
+        daysRemaining-=1;
+
+    }
+
+    public void back_stage_tick(){
+
+            if(quality!=50){
+                if(daysRemaining>=30){
+                    quality+=1;
+                }
+                else if(daysRemaining>=10 || daysRemaining >=6 ){
+                    quality+=2;
+                }
+                else if(daysRemaining<=5 && daysRemaining >0){
+                    quality+=3;
+                }
+
+                else if(daysRemaining<=0){
+                    quality=0;
+                }
 
 
             }
 
-            quality+=1;
 
-            if(quality==49&&daysRemaining==0){
-                quality=50;
-            } 
-            
-        }
 
+            daysRemaining-=1;
 
     }
 

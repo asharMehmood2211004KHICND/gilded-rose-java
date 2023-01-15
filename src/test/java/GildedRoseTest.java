@@ -153,6 +153,7 @@ public class GildedRoseTest {
         assertEquals(29, item.daysRemaining);
     }
 
+    // medium close to saledate  upperbound is 10
     @Test
     public void testBackstagePassMediumCloseToSellDateUpperBound() {
         GildedRose item = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 10, 10);
@@ -162,6 +163,7 @@ public class GildedRoseTest {
         assertEquals(9, item.daysRemaining);
     }
 
+
     @Test
     public void testBackstagePassMediumCloseToSellDateUpperBoundAtMaxQuality() {
         GildedRose item = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 50, 10);
@@ -170,6 +172,8 @@ public class GildedRoseTest {
         assertEquals(50, item.quality);
         assertEquals(9, item.daysRemaining);
     }
+
+    //medium close to saledate  lowerbound is 6
 
     @Test
     public void testBackstagePassMediumCloseToSellDateLowerBound() {
@@ -189,6 +193,7 @@ public class GildedRoseTest {
         assertEquals(5, item.daysRemaining);
     }
 
+    //very close to sale date upper bound is 5      // quality += 3
     @Test
     public void testBackstagePassVeryCloseToSellDateUpperBound() {
         GildedRose item = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 10, 5);
@@ -198,6 +203,7 @@ public class GildedRoseTest {
         assertEquals(4, item.daysRemaining);
     }
 
+    //
     @Test
     public void testBackstagePassVeryCloseToSellDateUpperBoundAtMaxQuality() {
         GildedRose item = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 50, 5);
@@ -207,6 +213,7 @@ public class GildedRoseTest {
         assertEquals(4, item.daysRemaining);
     }
 
+    //very close to sale date lower bound is 1     // quality += 3
     @Test
     public void testBackstagePassVeryCloseToSellDateLowerBound() {
         GildedRose item = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 10, 1);
@@ -225,6 +232,7 @@ public class GildedRoseTest {
         assertEquals(0, item.daysRemaining);
     }
 
+    //daysrem =0
     @Test
     public void testBackStagePassOnSellDate() {
         GildedRose item = new GildedRose("Backstage passes to a TAFKAL80ETC concert", 10, 0);
