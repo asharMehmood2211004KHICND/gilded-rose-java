@@ -251,8 +251,9 @@ public class GildedRoseTest {
         assertEquals(-2, item.daysRemaining);
     }
 
+    // before sellday quality will be reduced by 2 
     @Test
-    @Ignore
+    // @Ignore
     public void testConjuredItemBeforeSellDate() {
         GildedRose item = new GildedRose("Conjured Item", 10, 5);
         item.tick();
@@ -260,9 +261,9 @@ public class GildedRoseTest {
         assertEquals(8, item.quality);
         assertEquals(4, item.daysRemaining);
     }
-
+    // beforer sale day 1 qualtiy --> 0 quality
     @Test
-    @Ignore
+    // @Ignore
     public void testConjuredItemAtZeroQuality() {
         GildedRose item = new GildedRose("Conjured Item", 1, 1);
         item.tick();
@@ -270,9 +271,9 @@ public class GildedRoseTest {
         assertEquals(0, item.quality);
         assertEquals(0,item.daysRemaining);
     }
-
+    // on sale day : x quality ---> x-4 quality
     @Test
-    @Ignore
+    // @Ignore
     public void testConjuredItemOnSellDate() {
         GildedRose item = new GildedRose("Conjured Item", 10, 0);
         item.tick();
@@ -280,9 +281,9 @@ public class GildedRoseTest {
         assertEquals(6, item.quality);
         assertEquals(-1, item.daysRemaining);
     }
-
+    // onsale day : zero qulaity --> zero quality
     @Test
-    @Ignore
+    // @Ignore
     public void testConjuredItemOnSellDateAtZeroQuality() {
         GildedRose item = new GildedRose("Conjured Item", 0, 0);
         item.tick();
@@ -290,9 +291,9 @@ public class GildedRoseTest {
         assertEquals(0, item.quality);
         assertEquals(-1, item.daysRemaining);
     }
-
+    // after sale day quality will reduce by 4 
     @Test
-    @Ignore
+    // @Ignore
     public void testConjuredItemAfterSellDate() {
         GildedRose item = new GildedRose("Conjured Item", 10, -1);
         item.tick();
@@ -300,9 +301,9 @@ public class GildedRoseTest {
         assertEquals(6, item.quality);
         assertEquals(-2, item.daysRemaining);
     }
-
+    // after sale day : 0 quality --> 0 qualtiy
     @Test
-    @Ignore
+    // @Ignore
     public void testConjuredItemAfterSellDateAtZeroQuality() {
         GildedRose item = new GildedRose("Conjured Item", 0, -1);
         item.tick();
