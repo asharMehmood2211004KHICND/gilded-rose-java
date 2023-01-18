@@ -8,7 +8,6 @@ public class Conjured extends GildedRose {
     
     public void tick(){
         if(quality!=0){
-            // quality -=1;
             if(daysRemaining>1){
                 quality-=2;
 

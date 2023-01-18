@@ -2,7 +2,6 @@ public class Backstage extends GildedRose {
 
     public Backstage(String name, int quality, int daysRemaining) {
         super(name, quality, daysRemaining);
-        //TODO Auto-generated constructor stub
     }
     
     public void tick(){
