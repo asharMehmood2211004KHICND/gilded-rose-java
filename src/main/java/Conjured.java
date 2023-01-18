@@ -12,9 +12,12 @@ public class Conjured extends GildedRose {
             if(daysRemaining>1){
                 quality-=2;
 
-            }else if(daysRemaining<=1){quality-=1;}
+            }
+            else if(daysRemaining==1){
+                quality-=1;
+            }
 
-            else if(daysRemaining==0){
+            else if(daysRemaining<=0){
                 quality-=4;
             }
         }
